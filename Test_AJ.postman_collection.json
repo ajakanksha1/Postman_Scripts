@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "7accda5e-12c9-4e03-922f-30ecfb81dd98",
+		"name": "Test_AJ",
+		"description": "Add\nVerify\nUpdate\nVerify\nDelete Data\nVerify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "38600518-bcca-47f0-99bb-2c930cbe754f",
+			"name": "Get no 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39e94b18-fedd-49e3-9775-5a6464802bae",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"Test\")"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f1b94913-b43a-4d2f-90d0-da4552191ed0",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"*********Start***********\")",
+							"var data1=101",
+							"",
+							"if(data1%2===0)",
+							"{",
+							"    console.log(\"even no\")",
+							"}",
+							"else",
+							"{",
+							"    console.log(\"This is odd\")",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/{{resource}}/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "90a0a10f-3117-47a5-82a9-52d43a65b5b9",
+			"name": "for loop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74663baf-1271-4188-b740-229487107804",
+						"type": "text/javascript",
+						"exec": [
+							"for(i=1;i<=10;i++)",
+							"{",
+							"    console.log(i)",
+							"}",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/{{resource}}/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "e26b2603-0260-4922-8235-fdfa5d484b76",
+			"name": "while loop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15813852-2405-4a33-97e0-dc7c81fc5214",
+						"type": "text/javascript",
+						"exec": [
+							"i=1",
+							"while(i<10)",
+							"{",
+							"    console.log(i)",
+							"    i++",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/{{resource}}/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "84283122-8746-4602-99f4-e1c080ec9db3",
+			"name": "Request object-READ ONLY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b3124ca2-ee03-459b-b752-6d738f37b2f1",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(request.data)",
+							"console.log(request.url)",
+							"console.log(request.method)",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 122,\n    \"title\": \"mytitle3\",\n    \"author\": \"VY\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/{{resource}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "77e24ceb-bc5f-472c-9527-8be5e0a832b7",
+			"name": "ResponseBODY_JSONparse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "359a2067-81a1-4ea2-b0c0-5704a3ae6c40",
+						"type": "text/javascript",
+						"exec": [
+							"//can be used only in TEST section",
+							"console.log(responseBody)",
+							"",
+							"json1 = JSON.parse(responseBody)",
+							"console.log(json1.title)",
+							"console.log(json1.id)"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 132,\n    \"title\": \"mytitle30\",\n    \"author\": \"VS\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/{{resource}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1c9ee073-96d1-4a77-b021-3dfec7ba6065",
+			"name": "ResponseCode/Time",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9579bbaa-094b-4a81-8568-ef7f738c7918",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseTime)",
+							"console.log(responseCode.code)",
+							"console.log(responseCode.name)",
+							"console.log(responseCode.detail)"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 135,\n    \"title\": \"mytitle30\",\n    \"author\": \"VS\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/{{resource}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "fb00c003-a250-48f5-8f6b-21f1f4552083",
+			"name": "EnvVar$GlobalVar",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "279e6b80-dc9f-45ad-8c18-86d12bca08c5",
+						"type": "text/javascript",
+						"exec": [
+							"//postman.setEnvironmentVariable(\"MyID\",\"TestValue\")",
+							"",
+							"//console.log(postman.getEnvironmentVariable(\"url\"))",
+							"",
+							"//postman.clearEnvironmentVariable(\"MyID\")",
+							"//postman.clearEnvironmentVariables()",
+							"",
+							"//postman.setGlobalVariable(\"myvar\",\"Only STrng can be stored n env variables and global\")",
+							"",
+							"console.log(postman.getGlobalVariable(\"myvar\"))"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/{{resource}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resource}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
